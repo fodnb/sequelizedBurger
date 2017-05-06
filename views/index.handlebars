@@ -1,0 +1,60 @@
+<div id="title" class="jumbotron">
+<h1> Eat-Da<img src="cssfiles/img/download.jpg"> Burger </h1> 
+
+
+</div>
+
+
+<!-- this is adding all burgers on the page that have not been eaten yet and adding a button-->
+<div id="uneaten" class="col-sm-6 container">
+
+<h2> NEED TO EAT </h2>
+<ul>
+{{#each burgers}}
+{{#unless this.devoured}}
+<div>
+<li>
+<form action="/{{this.id}}?_method=PUT" method="POST">
+<input type="hidden" name="devoured" value="true">
+<button type="submit" class="btn-success btn">DEVOUR!</button>
+</form>
+{{this.id}}. {{this.burger_name}}
+</li>
+</div>
+{{/unless}}
+{{/each}}
+</ul>
+</div>
+
+
+
+
+<div id="eaten" class="col-sm-6 container">
+<h2> BURGERS EATEN!!!!</h2>
+<!-- this is adding all the burgers on the page that have been eaten -->
+<ul>
+{{#each burgers}}
+{{#if this.devoured}}
+<li> 
+
+{{this.id}}. {{this.burger_name}}
+</li>
+{{/if}}
+{{/each}}
+</ul>
+
+
+
+
+</div>
+
+
+<form id="addburger" class="create-update-form" action="/" method="POST">
+<div class="form-group">
+<label for="newburger">ADD A BURGER!</label>
+<input type="text" name="newburger" id="newburger">
+<input type="submit" name="submit" id="submit" class="btn-primary btn">	
+
+</div>
+<h2 id="instructions"> Enter a Burger you want to eat,Click the "SUBMIT" button.</h2>
+</form>

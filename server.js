@@ -27,7 +27,7 @@ var routes = require("./controllers/burgers_controller.js");
 app.use("/", routes);
 
 
-;
+
 // router.initalize(app);
 
 // Syncing our sequelize models and then starting our express app

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+// var connection = require('../config/connection.js');
 var db = require('../models');
 
 // create the router for the app and export the router at the end of the file

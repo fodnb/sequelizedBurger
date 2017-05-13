@@ -11,13 +11,7 @@ var db = require('../models');
 // module.exports = function(app){
 
 router.get("/", function(request, response) {
-  // burger.all(function(data) {
-  //   var hbsObject = {
-  //     burgers: data
-  //   };
-  //   console.log(hbsObject);
-  //   response.render("index", hbsObject);
-  // });
+
   db.burgersSequel.findAll({}).then(function(result){
 
     var theBurgers = {
@@ -32,14 +26,6 @@ router.get("/", function(request, response) {
   
 
 router.post("/", function(request, response) {
-  // burger.create([
-  //   "burger_name", "devoured"
-  // ], [
-  //   request.body.newburger, false
-  // ], function() {
-  //   response.redirect("/");
-  // });
-
 
   db.burgersSequel.create({
     burger_name: request.body.newburger,
@@ -58,29 +44,13 @@ router.put("/:id", function(request, response) {
   console.log("condition", condition);
   console.log(request.params.id);
   console.log(request.body.devoured);
-//   burger.update({
-//     devoured: request.body.devoured
-//   }, condition, function() {
-//     response.redirect("/");
-//   });
-// });
-//   db.burgersSequel.update({
-//      devoured: request.body.devoured
-     
-//     where: {
-//    id: request.params.id;
-//   }
-// }
-//   }).then(function(result){
-//     // response.json(result);
-//     response.redirect("/");
-//   })
+
 
 db.burgersSequel.update({
   devoured: request.body.devoured,
 }, {
   where: {
-      id: request.params.id
+      id: request.body.id
     }
   
 }).then(function(result){

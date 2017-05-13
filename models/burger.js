@@ -7,18 +7,17 @@ module.exports = function(sequelize, DataTypes) {
         devoured: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
-            
+
         },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW
         }
-    },
-    {
+    }, {
         timestamps: false
-    
-    
-        
+
+
+
 
     });
     return burger;
